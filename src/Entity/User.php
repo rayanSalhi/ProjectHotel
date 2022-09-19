@@ -4,123 +4,203 @@ namespace App\Entity;
 
 use App\Repository\UserRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 #[ORM\Entity(repositoryClass: UserRepository::class)]
-#[ORM\Table(name: '`user`')]
-class User
+#[UniqueEntity(fields: ['email'], message: 'There is already an account with this email')]
+class User implements UserInterface, PasswordAuthenticatedUserInterface
 {
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $Nom = null;
+    
+   
+   
 
     #[ORM\Column(length: 255)]
-    private ?string $Prenom = null;
+    private ?string $FirstName = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Adresse_Postal = null;
+    private ?string $LastName = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Code_Postal = null;
+    private ?string $Adresse = null;
 
     #[ORM\Column(length: 255)]
-    private ?string $Email = null;
+    private ?string $CP = null;
+
+    #[ORM\Column(length: 255)]
+    private ?string $Telephone = null;
+
+    #[ORM\Column(length: 180, unique: true)]
+    private ?string $email = null;
+
+     /**
+     * @var string The hashed password
+     */
+    #[ORM\Column]
+    private ?string $password = null;
+
 
     #[ORM\Column]
-    private ?int $Mobile = null;
+    private array $roles = [];
 
     #[ORM\Column(length: 255)]
-    private ?string $Mot_de_passe = null;
+    private ?string $Ville = null;
+
+
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getNom(): ?string
+    /**
+     * @see UserInterface
+     */
+    public function eraseCredentials()
     {
-        return $this->Nom;
+        // If you store any temporary, sensitive data on the user, clear it here
+        // $this->plainPassword = null;
     }
 
-    public function setNom(string $Nom): self
+    public function getFirstName(): ?string
     {
-        $this->Nom = $Nom;
+        return $this->FirstName;
+    }
+
+    public function setFirstName(string $FirstName): self
+    {
+        $this->FirstName = $FirstName;
 
         return $this;
     }
 
-    public function getPrenom(): ?string
+    public function getLastName(): ?string
     {
-        return $this->Prenom;
+        return $this->LastName;
     }
 
-    public function setPrenom(string $Prenom): self
+    public function setLastName(string $LastName): self
     {
-        $this->Prenom = $Prenom;
+        $this->LastName = $LastName;
 
         return $this;
     }
 
-    public function getAdressePostal(): ?string
+    public function getAdresse(): ?string
     {
-        return $this->Adresse_Postal;
+        return $this->Adresse;
     }
 
-    public function setAdressePostal(string $Adresse_Postal): self
+    public function setAdresse(string $Adresse): self
     {
-        $this->Adresse_Postal = $Adresse_Postal;
+        $this->Adresse = $Adresse;
 
         return $this;
     }
 
-    public function getCodePostal(): ?string
+    public function getCP(): ?string
     {
-        return $this->Code_Postal;
+        return $this->CP;
     }
 
-    public function setCodePostal(string $Code_Postal): self
+    public function setCP(string $CP): self
     {
-        $this->Code_Postal = $Code_Postal;
+        $this->CP = $CP;
 
         return $this;
     }
+    
+
+    public function setVille(string $Ville): self
+    {
+        $this->Ville = $Ville;
+
+        return $this;
+    }
+    
+
+    public function getTelephone(): ?string
+    {
+        return $this->Telephone;
+    }
+
+    public function setTelephone(string $Telephone): self
+    {
+        $this->Telephone = $Telephone;
+
+        return $this;
+    }
+
 
     public function getEmail(): ?string
     {
-        return $this->Email;
+        return $this->email;
     }
 
-    public function setEmail(string $Email): self
+    public function setEmail(string $email): self
     {
-        $this->Email = $Email;
+        $this->email = $email;
 
         return $this;
     }
 
-    public function getMobile(): ?int
+    /**
+     * A visual identifier that represents this user.
+     *
+     * @see UserInterface
+     */
+    public function getUserIdentifier(): string
     {
-        return $this->Mobile;
+        return (string) $this->email;
     }
 
-    public function setMobile(int $Mobile): self
+    /**
+     * @see UserInterface
+     */
+    public function getRoles(): array
     {
-        $this->Mobile = $Mobile;
+        $roles = $this->roles;
+        // guarantee every user at least has ROLE_USER
+        $roles[] = 'ROLE_USER';
+
+        return array_unique($roles);
+    }
+
+    public function setRoles(array $roles): self
+    {
+        $this->roles = $roles;
 
         return $this;
     }
 
-    public function getMotDePasse(): ?string
+    /**
+     * @see PasswordAuthenticatedUserInterface
+     */
+    public function getPassword(): string
     {
-        return $this->Mot_de_passe;
+        return $this->password;
     }
 
-    public function setMotDePasse(string $Mot_de_passe): self
+    public function setPassword(string $password): self
     {
-        $this->Mot_de_passe = $Mot_de_passe;
+        $this->password = $password;
 
         return $this;
     }
+
+    public function getVille(): ?string
+    {
+        return $this->Ville;
+    }
+
+
+
+
+
 }
