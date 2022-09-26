@@ -9,14 +9,12 @@
 
 	<h1>S'enregistrer</h1>
 		{% block content %}
-			{{ form_start(registrationForm) }}
-			{# {{ form_row(registrationForm.email) }}
-						{{ form_row(registrationForm.plainPassword, {
-							label: 'Password'
-						}) }}
-						{{ form_row(registrationForm.agreeTerms) }} #}
-			{# 
-						<button type="submit" class="btn">Register</button> #}
-			{{ form_end(registrationForm) }}
+
+		<div class="d-flex justify-content-center bg-secondary">
+			<div class="form-group m-5 shadow p-3 mb-5 bg-body rounded w-75">
+				{{ form_start(registrationForm) }}
+				{{ form_end(registrationForm) }}
+			</div>
+		</div>
 		{% endblock %}
 {% endblock %}
