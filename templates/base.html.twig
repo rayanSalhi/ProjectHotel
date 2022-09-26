@@ -41,37 +41,31 @@
 								{% endif %}
 							</li>
 							</li>
-							<li class="nav-item">
-								<a class="nav-link" href="#">Nos chambres</a>
+							<li class="nav-item active">
+								<a class="nav-link" href="{{path('app_liste_chambre')}}">Nos chambres</a>
 							</li>
 							<li class="nav-item">
 								<a class="nav-link" href="#">placeholder</a>
 							</li>
-							{# <li class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-								<div class="dropdown-menu">
-									<a class="dropdown-item" href="#">placeholder</a>
-									<a class="dropdown-item" href="#">placeholder</a>
-									<a class="dropdown-item" href="#">placeholder</a>
-									<div class="dropdown-divider"></div>
-									<a class="dropdown-item" href="#">placeholder</a>
-								</div>
-							</li> #}
 							<li class="nav-item active">
 							{% if app.user %}
-							<a class="nav-link" href="{{path('home')}}">Mon compte</a>
+							<a class="nav-link" href="{{path('app_reservation')}}">Ma reservation</a>
 							{% else %}
 							<a class="nav-link" href="{{path('app_login')}}">Connexion</a>
 							{% endif %}				 
-						</li>
-						<li class="nav-item active">
-							{% if app.user %}
-							<a class="nav-link" href="{{path('app_logout')}}">Logout</a>
-							{% else %}
-							<a class="nav-link" href="{{path('app_register')}}">Inscription</a>
-							{% endif %}
-						</li>
+							</li>
+							<li class="nav-item active">
+								{% if app.user %}
+								<a class="nav-link" href="{{path('app_logout')}}">Logout</a>
+								{% else %}
+								<a class="nav-link" href="{{path('app_register')}}">Inscription</a>
+								{% endif %}
+							</li>
 						</ul>
+						{% if is_granted("ROLE_ADMIN") %}
+						<a class="nav-link" href="{{path('admin')}}">Accès administration</a>
+						{% endif %}
+
 						{# <form class="d-flex">
 							<input class="form-control me-sm-2" type="text" placeholder="Search">
 							<button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
