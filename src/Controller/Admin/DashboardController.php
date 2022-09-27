@@ -44,7 +44,7 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user', User::class);
-        yield MenuItem::linkToDashboard('Etat des chambres', 'fa fa-home', );
+        yield MenuItem::linkToDashboard('Etat des chambres', 'fa fa-home', Chambre::class);
         yield MenuItem::linkToDashboard('Chambre libre', 'fa fa-home');
         yield MenuItem::linkToDashboard('Libérer une chambre', 'fa fa-bed-empty');
         yield MenuItem::linkToDashboard('Modifier une réservation ', 'fa fa-home');
