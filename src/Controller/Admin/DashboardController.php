@@ -2,6 +2,8 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Category;
+use App\Entity\Chambre;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -14,7 +16,7 @@ class DashboardController extends AbstractDashboardController
     #[Route('/admin', name: 'admin')]
     public function index(): Response
     {
-       
+
 
         // Option 1. You can make your dashboard redirect to some common page of your backend
         //
@@ -37,18 +39,18 @@ class DashboardController extends AbstractDashboardController
     {
         return Dashboard::new()
             ->setTitle('Projet Hotel V2');
-            // ->renderContentMaximize();
+        // ->renderContentMaximize();
     }
 
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user', User::class);
-        yield MenuItem::linkToDashboard('Etat des chambres', 'fa fa-home', Chambre::class);
+        yield MenuItem::linkToCrud('Type de chambre', 'fas fa-bed-alt', Category::class);
+        yield MenuItem::linkToCrud('Chambre', 'fas fa-bed-alt', Chambre::class);
         yield MenuItem::linkToDashboard('Chambre libre', 'fa fa-home');
         yield MenuItem::linkToDashboard('Libérer une chambre', 'fa fa-bed-empty');
         yield MenuItem::linkToDashboard('Modifier une réservation ', 'fa fa-home');
         yield MenuItem::linkToDashboard('Annulation d’une réservation ', 'fa fa-home');
-        
     }
 }
