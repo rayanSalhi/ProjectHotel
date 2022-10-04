@@ -111,7 +111,8 @@ class RegistrationFormType extends AbstractType
                 ]),
                 'attr' => [
                     'placeholder' => 'Merci de saisir votre email',
-                    'class' => 'bootstrap-class'
+                    'class' => 'bootstrap-class',
+                    'pattern' => "[a-z0-9._%+-]+@[a-z0-9.-]+\.(?:[a-z]{2}|com|org|gouv|net)$"
                 ]
             ])
 
