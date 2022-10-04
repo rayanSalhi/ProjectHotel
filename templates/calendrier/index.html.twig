@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>
+			{% block title %}
+				Calendrier
+			{% endblock %}
+		</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.css" integrity="sha256-5veQuRbWaECuYxwap/IOE/DAwNxgm4ikX7nrgsqYp88=" crossorigin="anonymous"> {% block stylesheets %}{% endblock %}
+		</head>
+
+		<style>
+			#calendrier {
+
+				width: 80%;
+				margin: auto;
+			}
+		</style>
+
+		<body>
+
+
+			{% block body %}
+
+				<div id="calendrier"></div>
+
+
+			{% endblock %}
+
+
+			<script src="https://cdn.jsdelivr.net/npm/fullcalendar@5.11.3/main.min.js" integrity="sha256-7PzqE1MyWa/IV5vZumk1CVO6OQbaJE4ns7vmxuUP/7g=" crossorigin="anonymous"></script>
+
+			<script>
+				window.onload = () => {
+let calendarElt = document.querySelector('#calendrier')
+
+let calendar = new FullCalendar.Calendar(calendarElt, {
+initialView: 'dayGridMonth',
+locale: 'fr',
+timeZone: 'Europe/Paris',
+headerToolbar: {
+start: 'prev,next today',
+center: 'title',
+end: 'dayGridMonth, timeGridWeek'
+},
+
+events: {{ data|raw }},
+editable: true,
+eventResizableFromStart: true
+})
+
+calendar.on('eventChange', (e) => {
+console.log(e)
+})
+
+calendar.render()
+}
+			</script>
+
+
+		</body>
+	</html>
