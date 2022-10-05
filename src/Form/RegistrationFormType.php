@@ -54,53 +54,53 @@ class RegistrationFormType extends AbstractType
                 ]
             ])
 
-            ->add('Adresse', TextType::class, [
-                'label' => 'Votre adresse',
-                'constraints' => new Length([
-                    'min' => 2,
-                    'max' => 150
-                ]),
-                'attr' => [
-                    'placeholder' => 'Merci de saisir votre adresse',
-                    'class' => 'bootstrap-class'
-                ]
-            ])
+            // ->add('Adresse', TextType::class, [
+            //     'label' => 'Votre adresse',
+            //     'constraints' => new Length([
+            //         'min' => 2,
+            //         'max' => 150
+            //     ]),
+            //     'attr' => [
+            //         'placeholder' => 'Merci de saisir votre adresse',
+            //         'class' => 'bootstrap-class'
+            //     ]
+            // ])
 
-            ->add('CP', NumberType::class, [
-                'label' => 'Votre code postal',
-                'constraints' => new Length([
-                    'min' => 2,
-                    'max' => 5
-                ]),
-                'attr' => [
-                    'placeholder' => 'Merci de saisir votre code postal',
-                    'class' => 'bootstrap-class'
-                ]
-            ])
+            // ->add('CP', NumberType::class, [
+            //     'label' => 'Votre code postal',
+            //     'constraints' => new Length([
+            //         'min' => 2,
+            //         'max' => 5
+            //     ]),
+            //     'attr' => [
+            //         'placeholder' => 'Merci de saisir votre code postal',
+            //         'class' => 'bootstrap-class'
+            //     ]
+            // ])
 
-            ->add('Ville', TextType::class, [
-                'label' => 'Votre ville',
-                'constraints' => new Length([
-                    'min' => 2,
-                    'max' => 30
-                ]),
-                'attr' => [
-                    'placeholder' => 'Merci de saisir votre ville',
-                    'class' => 'bootstrap-class'
-                ]
-            ])
+            // ->add('Ville', TextType::class, [
+            //     'label' => 'Votre ville',
+            //     'constraints' => new Length([
+            //         'min' => 2,
+            //         'max' => 30
+            //     ]),
+            //     'attr' => [
+            //         'placeholder' => 'Merci de saisir votre ville',
+            //         'class' => 'bootstrap-class'
+            //     ]
+            // ])
 
-            ->add('Telephone', TelType::class, [
-                'label' => 'Votre numéro de téléphone',
-                'constraints' => new Length([
-                    'min' => 10,
-                    'max' => 10
-                ]),
-                'attr' => [
-                    'placeholder' => 'Merci de saisir votre numéro de téléphone',
-                    'class' => 'bootstrap-class'
-                ]
-            ])
+            // ->add('Telephone', TelType::class, [
+            //     'label' => 'Votre numéro de téléphone',
+            //     'constraints' => new Length([
+            //         'min' => 10,
+            //         'max' => 10
+            //     ]),
+            //     'attr' => [
+            //         'placeholder' => 'Merci de saisir votre numéro de téléphone',
+            //         'class' => 'bootstrap-class'
+            //     ]
+            // ])
 
 
             ->add('email', EmailType::class, [
