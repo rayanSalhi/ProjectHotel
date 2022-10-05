@@ -1,13 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Se connecter
-{% endblock %}
-
-{% block body %}
-	{% block nav %}{% endblock %}
-
-    
-
+	{% block menuDroite %}
 	<form method="post" class='m-5'>
 		{% if error %}
 			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
@@ -29,4 +22,5 @@
 			s'inscrire
 		</button>
 	</form>
-{% endblock %}
+	{% endblock %}
+
