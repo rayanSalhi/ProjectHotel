@@ -44,20 +44,20 @@
 				<!-- Inner -->
 				<div
 					class="carousel-inner">
-					<!-- Single item -->
+					<!--Video_1 -->
 					<div class="carousel-item active">
 						<video class="img-fluid" autoplay loop muted>
-							<source src="{{asset('asset/video/videohome.mp4')}}" type="video/mp4"/>
+							<source src="{{asset('asset/video/chambrevideo.mp4')}}" type="video/mp4"/>
 						</video>
 						<div class="carousel-caption d-none d-md-block">
-							<h5>First slide label</h5>
+							<h5>Chambre Prestige</h5>
 							<p>
-								Nulla vitae elit libero, a pharetra augue mollis interdum.
+								Suite Prestige 
 							</p>
 						</div>
 					</div>
 
-					<!-- Single item -->
+					{# <!-- Video_2-->
 					<div class="carousel-item">
 						<video class="img-fluid" autoplay loop muted>
 							<source src="{{asset('asset/video/chambrevideo.mp4')}}" type="video/mp4"/>
@@ -68,7 +68,7 @@
 								Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 							</p>
 						</div>
-					</div>
+					</div> #}
 
 					<!-- Single item -->
 					<div class="carousel-item">
@@ -76,7 +76,7 @@
 							<source src="{{asset('asset/video/spa.mp4')}}" type="video/mp4"/>
 						</video>
 						<div class="carousel-caption d-none d-md-block">
-							<h5>Third slide label</h5>
+							<h5>Piscine </h5>
 							<p>
 								Praesent commodo cursus magna, vel scelerisque nisl consectetur.
 							</p>
@@ -118,41 +118,36 @@
 			{# menu a gauche #}
 			<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 				<div class="offcanvas-header">
-					<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
+					<h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
 					<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 				</div>
 				<div class="offcanvas-body">
 					<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 						<li class="nav-item">
-							<a class="nav-link active" aria-current="page" href="{{path('app_calendar_new')}}">Réserver votre séjour</a>
+							<a class="nav-link active" aria-current="page" href="{{path('app_calendar_new')}}">RESERVER UNE CHAMBRE</a>
 						</li>
 						<li class="nav-item">
-							<a class="nav-link" href="#">Link</a>
+							<a class="nav-link" href="{{path('story')}}"> NOTRE HISTOIRE </a>
 						</li>
-						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle" href="#" id="offcanvasNavbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-								Dropdown
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="{{path('liste_chambre')}}"> NOS CHAMBRES
 							</a>
-							<ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
+							</li>
+							{# <ul class="dropdown-menu" aria-labelledby="offcanvasNavbarDropdown">
 								<li>
-									<a class="dropdown-item" href="#">Action</a>
+									<a class="dropdown-item" href="#">CHAMBRES DOUBLE SUPERIEUR</a>
 								</li>
 								<li>
-									<a class="dropdown-item" href="#">Another action</a>
+									<a class="dropdown-item" href="#">CHAMBRES DOUBLE DELUXE</a>
 								</li>
+								
 								<li>
-									<hr class="dropdown-divider">
+									<a class="dropdown-item" href="#">CHAMBRES JUNIOR</a>
 								</li>
-								<li>
-									<a class="dropdown-item" href="#">Something else here</a>
-								</li>
-							</ul>
+							</ul> #}
 						</li>
 					</ul>
-					<form class="d-flex">
-						<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-						<button class="btn btn-outline-success" type="submit">Search</button>
-					</form>
+					
 				</div>
 			</div>
 
