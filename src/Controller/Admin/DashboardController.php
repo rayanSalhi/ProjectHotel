@@ -46,11 +46,11 @@ class DashboardController extends AbstractDashboardController
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
         yield MenuItem::linkToCrud('Utilisateur', 'fas fa-user', User::class);
-        yield MenuItem::linkToCrud('Type de chambre', 'fas fa-bed-alt', Category::class);
-        yield MenuItem::linkToCrud('Chambre', 'fas fa-bed-alt', Chambre::class);
-        yield MenuItem::linkToDashboard('Chambre libre', 'fa fa-home');
-        yield MenuItem::linkToDashboard('Libérer une chambre', 'fa fa-bed-empty');
-        yield MenuItem::linkToDashboard('Modifier une réservation ', 'fa fa-home');
-        yield MenuItem::linkToDashboard('Annulation d’une réservation ', 'fa fa-home');
+        yield MenuItem::linkToCrud('Type de chambre', 'fas fa-school', Category::class);
+        yield MenuItem::linkToCrud('Chambre', 'fas fa-bed', Chambre::class);
+        yield MenuItem::linkToDashboard('Chambre libre', 'fa fa-key');
+        yield MenuItem::linkToDashboard('Libérer une chambre', 'fa fa-clock');
+        yield MenuItem::linkToDashboard('Modifier une réservation ', 'fa fa-edit');
+        yield MenuItem::linkToDashboard('Annulation d’une réservation ', 'fa fa-undo');
     }
 }
