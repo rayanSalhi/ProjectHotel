@@ -1,20 +1,31 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello StoryController!{% endblock %}
+{% block title %} NOTRE HISTOIRE {% endblock %}
+
+{% block style %}
+<style>
+
+.titre {
+    text-align: center;
+    background-color : bisque;
+    
+}
+</style>
+{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
-
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Users/siham/Desktop/projet_hotel_v2/src/Controller/StoryController.php'|file_link(0) }}">src/Controller/StoryController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Users/siham/Desktop/projet_hotel_v2/templates/story/index.html.twig'|file_link(0) }}">templates/story/index.html.twig</a></code></li>
-    </ul>
+<div class="gallery">
+    <img src="/asset/images/reception-hotel.webp" alt="Reception" width="1700" height="500">
 </div>
+
+<div class="titre">
+  
+    <h1>NOTRE HISTOIRE</h1><br>
+    <p>Nous somme une jeune équipe de developpeur, qui aimont travailler partout dans le monde dans des lieux extraordianaire et prestigieux, <br> notre amours des lieux prestigieux fait que nous avons ouvert notre propre hôtel avec des chambres aussi confortable que prestigieuse.<br> Autem excepturi veniam nemo. Ipsum maiores quo dolore voluptate natus laudantium quae inventore dolores, <br> provident recusandae quia quos, quas sint modi delectus.</p><br>
+    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. <br> Unde, deleniti praesentium cum commodi modi velit maiores error provident soluta impedit corporis sint, <br> eius temporibus ipsum expedita ea consequuntur nobis laudantium!</p>
+</div>
+
+
+
 {% endblock %}

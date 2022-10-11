@@ -1,0 +1,62 @@
+.body {
+	margin: 0;
+	background: black;
+}
+
+.video {
+	z-index: -1;
+	-webkit-filter: grayscale(60%);
+}
+.offcanvas-body {
+    color: black;
+    font-size: 14px;
+}
+
+/* css menu NOS CHAMBRES */
+* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    box-sizing: border-box;
+  
+  }
+
+  .menu {
+    display: inline-block;
+  }
+  .menu > li {
+    float: left;
+    color: black;
+    width: 300px;
+    height: 300px;
+    line-height: 40px;
+    background: white;
+    cursor: pointer;
+    font-size: 17px;
+  }
+  .sub-menu {
+    transform: scale(0);
+    transform-origin: top center;
+    transition: all 300ms ease-in-out;
+  }
+  .sub-menu li {
+    font-size: 14px;
+    background: white;
+    color: black;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    transform: scale(0);
+    transform-origin: top center;
+    transition: all 300ms ease-in-out; 
+  }
+  .sub-menu li:last-child {
+    border-bottom: 0;
+  }
+  .sub-menu li:hover {
+    background: bisque;
+  }
+  .menu > li:hover .sub-menu li {
+    transform: scale(1);
+  }
+  .menu > li:hover .sub-menu {
+    transform: scale(1);
+  }
