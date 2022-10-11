@@ -48,9 +48,11 @@
         <div class="d-flex justify-content-center mb-5">
             <a class="nav-link" href="{{path('app_logout')}}"><button class="btn btn-lg btn-primary" type="button">Se déconnecter</button></a>
 		</div>
+		<div class="d-flex justify-content-center mb-5">
         {% if is_granted("ROLE_ADMIN") %}
             <a class="nav-link d-flex justify-content-center position-fixed bottom-0" href="{{path('admin')}}"><button class="btn btn-lg btn-danger" type="button">Accès administration</button></a>
         {% endif %}
+		</div>
 	{% else %}
 		<h1>S'enregistrer</h1>
 
