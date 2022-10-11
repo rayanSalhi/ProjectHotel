@@ -5,7 +5,17 @@
 		{% if error %}
 			<div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
 		{% endif %}
-
+		{% if app.user %}
+			<div class="d-flex justify-content-center mb-5">
+				Vous êtes déjà connecté
+			</div>
+			<div class="d-flex justify-content-center mb-5">
+							<a class="nav-link" href="{{path('home')}}"><button class="btn btn-lg btn-primary" type="button">Home</button></a>
+						</div>
+			<div class="d-flex justify-content-center mb-5">
+				<a class="nav-link" href="{{path('app_logout')}}"><button class="btn btn-lg btn-primary" type="button">Se déconnecter</button></a>
+			</div>
+		{% else %}
 		<h1 class="h3 mb-3 font-weight-normal">Connectez-vous</h1>
 		<label for="inputEmail">Email</label>
 		<input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" autocomplete="email" required autofocus>
@@ -18,9 +28,10 @@
 		<button class="btn btn-lg btn-primary" type="submit">
 			Se connecter
 		</button>
-        <a href="{{ path('app_register') }}" <button class="btn btn-lg btn-primary" type="button">
+		<a href="{{ path('app_register') }}" <button class="btn btn-lg btn-primary" type="button">
 			s'inscrire
 		</button></a>
 	</form>
+		{% endif %}
 	{% endblock %}
 
