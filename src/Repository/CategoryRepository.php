@@ -21,6 +21,17 @@ class CategoryRepository extends ServiceEntityRepository
         parent::__construct($registry, Category::class);
     }
 
+    public function getParCategory($cat)
+    {
+        
+       return $this->createQueryBuilder('c')
+           ->andWhere('c.cat = :val')
+           ->setParameter('val', $cat)
+           ->getQuery()
+           ->getResult()
+           ;
+    }
+
     public function save(Category $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
