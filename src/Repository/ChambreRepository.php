@@ -21,6 +21,17 @@ class ChambreRepository extends ServiceEntityRepository
         parent::__construct($registry, Chambre::class);
     }
 
+    public function getChambreParCategory($category)
+    {
+        
+       return $this->createQueryBuilder('c')
+           ->andWhere('c.category = :val')
+           ->setParameter('val', $category)
+           ->getQuery()
+           ->getResult()
+           ;
+    }
+
     public function save(Chambre $entity, bool $flush = false): void
     {
         $this->getEntityManager()->persist($entity);
