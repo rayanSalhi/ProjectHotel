@@ -27,14 +27,14 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $LastName = null;
 
-    // #[ORM\Column(length: 255)]
-    // private ?string $Adresse = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Adresse = null;
 
-    // #[ORM\Column(length: 255)]
-    // private ?string $CP = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $CP = null;
 
-    // #[ORM\Column(length: 255)]
-    // private ?string $Telephone = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Telephone = null;
 
     #[ORM\Column(length: 180, unique: true)]
     #[Assert\Email(message: '{{ value }} n\'est pas une email valide.')]
@@ -50,8 +50,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private array $roles = [];
 
-    // #[ORM\Column(length: 255)]
-    // private ?string $Ville = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Ville = null;
 
     #[ORM\Column(length: 255)]
     private ?string $civilite = null;
