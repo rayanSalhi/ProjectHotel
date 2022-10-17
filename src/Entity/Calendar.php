@@ -5,6 +5,7 @@ namespace App\Entity;
 use App\Repository\CalendarRepository;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: CalendarRepository::class)]
 class Calendar
@@ -14,9 +15,15 @@ class Calendar
     #[ORM\Column]
     private ?int $id = null;
 
+    /**
+    * @Assert\GreaterThanOrEqual("today")
+    */
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $Start = null;
 
+    /**
+    * @Assert\GreaterThan(propertyPath="Start")
+    */
     #[ORM\Column(type: Types::DATETIME_MUTABLE)]
     private ?\DateTimeInterface $End = null;
 
