@@ -12,3 +12,20 @@ body{
     <button class="btn btn-dark">{{ button_label|default('Save') }}</button>
 </div>
 {{ form_end(form) }}
+{# 
+<script>
+
+    const selectStart = document.querySelector('#calendar');
+    const selectEnd = document.querySelector('#calendar');
+    const form = document.querySelector('form');
+            console.log(selectStart);
+            console.log(selectEnd);
+
+    form.addEventListener("input", (e)=> {
+       e.preventDefault();
+       // if (selectStart > selectEnd) {
+        //     alert("Veuiller saisir une date valide");
+        // }
+    });
+
+</script> #}
