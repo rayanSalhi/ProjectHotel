@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Entity;
+
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
@@ -17,30 +18,30 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
-    
-   
-   
-
     #[ORM\Column(length: 255)]
     private ?string $FirstName = null;
 
     #[ORM\Column(length: 255)]
     private ?string $LastName = null;
 
-    // #[ORM\Column(length: 255)]
-    // private ?string $Adresse = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Adresse = null;
 
-    // #[ORM\Column(length: 255)]
-    // private ?string $CP = null;
 
-    // #[ORM\Column(length: 255)]
-    // private ?string $Telephone = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Ville = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $CP = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Telephone = null;
 
     #[ORM\Column(length: 180, unique: true)]
     #[Assert\Email(message: '{{ value }} n\'est pas une email valide.')]
     private ?string $email = null;
 
-     /**
+    /**
      * @var string The hashed password
      */
     #[ORM\Column]
@@ -119,15 +120,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
         return $this;
     }
-    
-
-    public function setVille(string $Ville): self
-    {
-        $this->Ville = $Ville;
-
-        return $this;
-    }
-    
 
     public function getTelephone(): ?string
     {
@@ -198,11 +190,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getVille(): ?string
-    {
-        return $this->Ville;
-    }
-
     public function getCivilite(): ?string
     {
         return $this->civilite;
@@ -215,8 +202,23 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
+    /**
+     * Get the value of Ville
+     */
+    public function getVille()
+    {
+        return $this->Ville;
+    }
 
+    /**
+     * Set the value of Ville
+     *
+     * @return  self
+     */
+    public function setVille($Ville)
+    {
+        $this->Ville = $Ville;
 
-
-
+        return $this;
+    }
 }

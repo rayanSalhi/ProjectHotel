@@ -1,0 +1,218 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Votre Profil
+{% endblock %}
+
+{% block body %}
+
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.7.3/themes/base/jquery-ui.css">
+	<link rel="stylesheet" href="{{asset('asset/css/profil.css')}}">
+
+	<div id='css_profil'>
+		<div class='row'>
+			<div class="d-flex justify-content-center text-success">
+
+				<h1 style="color:green;  ">
+					PARAS-LODGE-HÔTEL
+				</h1>
+
+			</div>
+
+
+			<div class='d-flex justify-content-end'>
+				<h5>
+					{{app.user.FirstName}}
+
+					{{app.user.LastName}}
+					<br>
+
+					statut:
+					{% if is_granted('ROLE_ADMIN') %}
+						Administrateur
+					{% else %}
+						Classique
+					{% endif %}
+					<h5></div>
+
+
+					<h2 style='margin-left : 12%'>VOTRE PROFIL</h2>
+					<br>
+				</div>
+
+				<div class="row">
+
+					<div style='height:50%;' class='container col-3  mt-5 shadow p-3 mb-5 bg-white rounded'>
+
+						<H3>VOTRE COMPTE</H3>
+						<h5 style="background:black; color:white;">
+							MEMBRE
+							{% if is_granted('ROLE_ADMIN') %}
+								Administrateur
+							{% else %}
+								Classique
+							{% endif %}
+						</h5>
+						<br>
+						<br>
+						<h5 style="color:green;  ">VOTRE PROFIL    ></h5>
+
+						<br>
+
+						<H5 style="color:green;  ">VOS RESERVATIONS     ></H5>
+					</div>
+
+
+					<div class='container-fluid col-8'>
+
+
+						{{ form_start(form) }}
+
+						<h3>VOS INFORMATIONS</h3>
+						<HR>
+					</HR>
+					<div class="row">
+						<div class="col-md-3">
+							{{ form_row(form.civilite) }}
+						</div>
+					</div>
+
+					<div class="row">
+
+						<div class="col-md-6  ">
+							{{ form_row(form.FirstName) }}
+						</div>
+						<div class="col-md-6">
+							{{ form_row(form.LastName) }}
+						</div>
+
+
+					</div>
+
+					<h3>
+						VOS INFORMATIONS DE CONTACT
+					</h3>
+					<HR>
+
+				</HR>
+				<div class="row">
+
+					<div class="col-md-12">
+						{{ form_row(form.Adresse) }}
+					</div>
+
+				</div>
+
+				<div class="row">
+
+					<div class="col-md-6">
+						{{ form_row(form.Ville) }}
+					</div>
+
+					<div class="col-md-6">
+						{{ form_row(form.CP) }}
+					</div>
+
+					<div class="col-md-6">
+						{{ form_row(form.Telephone) }}
+						{{ form_row(form.old_password) }}
+
+					</div>
+
+				</div>
+
+				<div class="row">
+					<div class="col-md-6">
+						{{ form_row(form.new_password) }}
+					</div>
+				</div>
+
+
+				<div class=" d-flex justify-content-center">
+					{{ form_row(form.submit) }}
+
+				</div>
+
+
+				{{ form_end(form) }}</div>
+
+		</div>
+
+	</div>
+	<script>
+		$("#change_password_CP").autocomplete({
+source: function (request, response) {
+$.ajax({
+url: "https://api-adresse.data.gouv.fr/search/?postcode=" + $("input[name='cp']").val(),
+data: {
+q: request.term
+},
+dataType: "json",
+success: function (data) {
+var postcodes = [];
+response($.map(data.features, function (item) { // Ici on est obligé d'ajouter les CP dans un array pour ne pas avoir plusieurs fois le même
+if ($.inArray(item.properties.postcode, postcodes) == -1) {
+postcodes.push(item.properties.postcode);
+return {
+label: item.properties.postcode + " - " + item.properties.city,
+city: item.properties.city,
+value: item.properties.postcode
+};
+}
+}));
+}
+});
+},
+// On remplit aussi la ville
+select: function (event, ui) {
+$('#change_password_Ville').val(ui.item.city);
+}
+});
+$("#change_password_Ville").autocomplete({
+source: function (request, response) {
+$.ajax({
+url: "https://api-adresse.data.gouv.fr/search/?city=" + $("input[name='ville']").val(),
+data: {
+q: request.term
+},
+dataType: "json",
+success: function (data) {
+var cities = [];
+response($.map(data.features, function (item) { // Ici on est obligé d'ajouter les villes dans un array pour ne pas avoir plusieurs fois la même
+if ($.inArray(item.properties.postcode, cities) == -1) {
+cities.push(item.properties.postcode);
+return {
+label: item.properties.postcode + " - " + item.properties.city,
+postcode: item.properties.postcode,
+value: item.properties.city
+};
+}
+}));
+}
+});
+},
+// On remplit aussi le CP
+select: function (event, ui) {
+$('#change_password_CP').val(ui.item.postcode);
+}
+});
+$("#change_password_Adresse").autocomplete({
+source: function (request, response) {
+$.ajax({
+url: "https://api-adresse.data.gouv.fr/search/?postcode=" + $("input[name='cp']").val(),
+data: {
+q: request.term
+},
+dataType: "json",
+success: function (data) {
+response($.map(data.features, function (item) {
+return {label: item.properties.name, value: item.properties.name};
+}));
+}
+});
+}
+});
+	</script>
+{% endblock %}

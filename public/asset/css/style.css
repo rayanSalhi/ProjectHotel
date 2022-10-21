@@ -25,7 +25,9 @@
   box-sizing: border-box;
 
 }
-
+label{
+  color: green;
+}
 .menu {
   display: inline-block;
 }
