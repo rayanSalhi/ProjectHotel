@@ -45,7 +45,7 @@ video {
 				<div
 				class="background"> <!-- Carousel wrapper -->
 				<div
-					id="carouselVideoExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+					id="carouselVideoExample" class="carousel slide cfarousel-fade" data-mdb-ride="carousel">
 					<!-- Indicators -->
 					<div class="carousel-indicators">
 						<button type="button" data-mdb-target="#carouselVideoExample" data-mdb-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -133,26 +133,34 @@ video {
 		
 				<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 					<div class="offcanvas-header">
-						<h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
+						<h2 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h2>
 						<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 					</div>
+
 					<div class="offcanvas-body">
 						{% block menuGauche %}
 							<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-							<li class="nav-item">
-									<a class="nav-link" href="{{path('story')}}">
-										NOTRE HISTOIRE
-									</a>
-								</li>
-								<br>
 								<li class="nav-item">
 									<a class="nav-link active" aria-current="page" href="{{path('app_calendar_new')}}">
-										RESERVER UNE CHAMBRE</a>
+										<h5 style="color:green;  ">
+											RESERVER UNE CHAMBRE
+										</h5>
+									</a>
 								</li>
-							<br>
-							
 								<li class="nav-item">
-									NOS CHAMBRES
+									<a class="nav-link" href="{{path('story')}}">
+										<h5 style="color:green;  ">
+											QUI SOMMES NOUS?
+										</h5>
+									</a>
+								</li>
+							</ul>
+							<ul class="menu d-flex justify-content-end ">
+								<li class="nav-item">
+									<h5 style="color:green;  ">
+										NOS CHAMBRES</h5>
+									<hr>
+
 									<ul class="sub-menu">
 										<li>
 											<a href="{{path('typeCategory',{'category': 1 })}}">
@@ -165,19 +173,16 @@ video {
 							<li>
 								<a href="{{path('typeSuite',{'category': 2 })}}">Suite Junior</a>
 							</li>
-					</li>
+						</li>
+
 					</ul>
 					
 				</ul>
+
 			</body>
 		</html>
 	</div>
-</div>{% endblock %}
-		
-
-{# config 2 #}
-{#menu a droite  #}
-<div class="offcanvas offcanvas-end {% if ('/registration/register.html.twig') %} show {% endif %}" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbarLabel">
+</div>{% endblock %}{# config 2 #}{#menu a droite  #}<div class="offcanvas offcanvas-end {% if ('/registration/register.html.twig') %} show {% endif %}" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbarLabel">
 <div class="offcanvas-header">
 {% block CanvasTitle %}
 	<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Se connecter</h5>
@@ -185,33 +190,28 @@ video {
 <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 </div>
 <div class="offcanvas-body">
-{% block menuDroite %}
-	{% if app.user %}
-		<div class="d-flex justify-content-center mb-5">
-			Vous êtes déjà connecté
-		</div>
-		<div class="d-flex justify-content-center mb-5">
-			<a class="nav-link" href="{{path('home')}}">
-				<button class="btn btn-lg btn-primary" type="button">Home</button>
-			</a>
-		</div>
-		<div class="d-flex justify-content-center mb-5">
-			<a class="nav-link" href="{{path('app_logout')}}">
-				<button class="btn btn-lg btn-primary" type="button">Se déconnecter</button>
-			</a>
-		</div>
-	{% else %}
-		<a class="nav-link" aria-current="page" href="{{path('app_register')}}">s'inscrire</a>
-		<a class="nav-link" href="{{path('app_login')}}">>Se connecter</a>
-	{% endif %}
-{% endblock %}
+	{% block menuDroite %}
+		{% if app.user %}
+			<div class="d-flex justify-content-center mb-5">
+				Vous êtes déjà connecté
+			</div>
+			<div class="d-flex justify-content-center mb-5">
+				<a class="nav-link" href="{{path('home')}}">
+					<button class="btn btn-lg btn-primary" type="button">Home</button>
+				</a>
+			</div>
+			<div class="d-flex justify-content-center mb-5">
+				<a class="nav-link" href="{{path('app_logout')}}">
+					<button class="btn btn-lg btn-primary" type="button">Se déconnecter</button>
+				</a>
+			</div>
+		{% else %}
+			<a class="nav-link" aria-current="page" href="{{path('app_register')}}">s'inscrire</a>
+			<a class="nav-link" href="{{path('app_login')}}">>Se connecter</a>
+		{% endif %}
+	{% endblock %}
 
-
-</div></div></div><div
-class="corps">
-{# image 1 #}
-{% if block ('content2') is defined %}
-<div class="container my-5 text-white" style="background-color: black;">
+</div></div></div><divclass="corps">{# image 1 #}<div class="container my-5 text-white" style="background-color: black;">
 <div class="row">
 	<div class="col-lg-6 ">
 		<img class="w-100 shadow" src="{{asset('asset/images/chambre_5.png')}}"/>
@@ -343,7 +343,7 @@ class="corps">
 					</h6>
 					<p>
 						Here you can use rows and columns to organize your footer content. Lorem ipsum
-						dolor sit amet, consectetur adipisicing elit.
+																																																																																																																																		            dolor sit amet, consectetur adipisicing elit.
 					</p>
 				</div>
 				<!-- Grid column -->
@@ -423,12 +423,8 @@ class="corps">
 		© 2021 Copyright:
 		<a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
 	</div>
-
 	<!-- Copyright -->
-</footer><!-- Footer -->{# footer #}</div></body></div>{# config 2 #}<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbarLabel"><div class="offcanvas-header">
-<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5>
-<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button></div><div class="offcanvas-body">
-<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+</footer><!-- Footer -->{# footer #}</div></body></div>{# config 2 #}<div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbarLabel"><div class="offcanvas-header"><h5 class="offcanvas-title" id="offcanvasNavbarLabel">Offcanvas</h5><button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button></div><div class="offcanvas-body"><ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 <li class="nav-item">
 	<a class="nav-link active" aria-current="page" href="#">Home</a>
 </li>
@@ -453,14 +449,4 @@ class="corps">
 			<a class="dropdown-item" href="#">Something else here</a>
 		</li>
 	</ul>
-</li>
-</ul>
-
-<form class="d-flex">
-<input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success" type="submit">Search</button>
-</form>
-{% endif %}
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<!-- MDB -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script>
-</body>{% endblock %}
+</li></ul><form class="d-flex"><input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"><button class="btn btn-outline-success" type="submit">Search</button></form></div></div><script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script><!-- MDB --><script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/5.0.0/mdb.min.js"></script></body>{% endblock %}</div>
