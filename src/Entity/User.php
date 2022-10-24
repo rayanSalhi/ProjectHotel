@@ -18,9 +18,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private ?int $id = null;
 
     
-   
-   
-
     #[ORM\Column(length: 255)]
     private ?string $FirstName = null;
 

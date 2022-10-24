@@ -2,14 +2,14 @@
 
 namespace App\Controller\Admin;
 
-use App\Entity\Category;
-use App\Entity\Chambre;
 use App\Entity\User;
-use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
-use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
-use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
+use App\Entity\Chambre;
+use App\Entity\Category;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
+use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -49,7 +49,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Type de chambre', 'fas fa-school', Category::class);
         yield MenuItem::linkToCrud('Chambre', 'fas fa-bed', Chambre::class);
         yield MenuItem::linkToDashboard('Chambre libre', 'fa fa-key');
-        yield MenuItem::linkToDashboard('Libérer une chambre', 'fa fa-clock');
+        yield MenuItem::linkToRoute('Calendrier', 'fa fa-clock', 'app_calendrier');
         yield MenuItem::linkToDashboard('Modifier une réservation ', 'fa fa-edit');
         yield MenuItem::linkToDashboard('Annulation d’une réservation ', 'fa fa-undo');
     }
