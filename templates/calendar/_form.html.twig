@@ -15,20 +15,20 @@ body{
 
 <script>
 
-        let yearStart = document.querySelector('#calendar_Start_date_year').value;
-        let yearEnd = document.querySelector('#calendar_End_date_year').value;
-        let monthStart = document.querySelector('#calendar_Start_date_month').value;
-        let monthEnd = document.querySelector('#calendar_End_date_month').value;  
-        let dayStart = document.querySelector('#calendar_Start_date_day').value;
-        let dayEnd = document.querySelector('#calendar_End_date_day').value;          
-        let form = document.querySelector('form');
-        console.log(yearStart);     
-        console.log(yearEnd);  
-        console.log(monthStart);     
-        console.log(monthEnd);   
-        console.log(dayStart);  
-        console.log(dayEnd);  
-         
+    let yearStart = document.querySelector('#calendar_Start_date_year').value;
+    let yearEnd = document.querySelector('#calendar_End_date_year').value;
+    let monthStart = document.querySelector('#calendar_Start_date_month').value;
+    let monthEnd = document.querySelector('#calendar_End_date_month').value;  
+    let dayStart = document.querySelector('#calendar_Start_date_day').value;
+    let dayEnd = document.querySelector('#calendar_End_date_day').value;          
+    let form = document.querySelector('form');
+    console.log(yearStart);     
+    console.log(yearEnd);  
+    console.log(monthStart);     
+    console.log(monthEnd);   
+    console.log(dayStart);  
+    console.log(dayEnd); 
+          
     let Validation = function (e) {
         if ((
                 yearStart > yearEnd) 
@@ -44,12 +44,13 @@ body{
                 dayStart = document.querySelector('#calendar_Start_date_day').value;
                 dayEnd = document.querySelector('#calendar_End_date_day').value;  
             }else{
-                console.log(yearStart);     
-                console.log(yearEnd);  
-                console.log(monthStart);     
-                console.log(monthEnd);   
-                console.log(dayStart);  
-                console.log(dayEnd);  
+                form.addEventListener("input", Validation);   
+                yearStart = document.querySelector('#calendar_Start_date_year').value;
+                yearEnd = document.querySelector('#calendar_End_date_year').value;
+                monthStart = document.querySelector('#calendar_Start_date_month').value;
+                monthEnd = document.querySelector('#calendar_End_date_month').value;  
+                dayStart = document.querySelector('#calendar_Start_date_day').value;
+                dayEnd = document.querySelector('#calendar_End_date_day').value;  
             }
     }
     

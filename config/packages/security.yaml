@@ -32,6 +32,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN }
+        - { path: ^/calendrier, roles: ROLE_ADMIN }
         - { path: ^/home, roles: ROLE_USER }
         - { path: ^/calendar/new, roles: ROLE_USER }
         - { path: ^/, roles: PUBLIC_ACCESS }

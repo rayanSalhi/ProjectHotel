@@ -4,7 +4,22 @@
 {% block content %}
 
 <div class="jumbotron">
-    <div class="row w-100">
+    <div>
+    <h1 class="d-flex justify-content-center mb-5">Bienvenue {{app.user.LastName}} !</h1>
+        <div class="d-flex justify-content-center mb-5">
+        Vous vous trouvez sur la partie administration de ParasLodge hotel. 
+        </div>
+        <div class="d-flex justify-content-center flex-column"> 
+            <p>Ici vous pourrez:</p>
+            <ul>
+                <li>Gérer vos clients</li>
+                <li>Créer de nouvelle catégorie de chambre</li>
+                <li>Ajouter vos chambres</li>
+                <li>visualiser le calendrier de réservation et les modifier si besoins</li>
+            </ul> 
+        </div>
+    </div>
+    {# <div class="row w-100">
         <div class="col-md-3">
             <div class="card border-info mx-sm-1 p-3">
                 <div class="card border-info shadow text-info p-3 my-card" ><span class="fa " aria-hidden="true"></span></div>
@@ -49,7 +64,7 @@
                 <div class="text-success text-center mt-2"><h1>getValue</h1></div>
             </div>
         </div>
-     </div>
+     </div> #}
 </div>
 
 {% endblock %}
