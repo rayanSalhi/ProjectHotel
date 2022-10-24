@@ -27,10 +27,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $Adresse = null;
 
-
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $Ville = null;
-
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $CP = null;
 
@@ -46,7 +42,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     #[ORM\Column]
     private ?string $password = null;
-
 
     #[ORM\Column]
     private array $roles = [];
