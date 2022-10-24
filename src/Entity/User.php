@@ -46,8 +46,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private array $roles = [];
 
-    #[ORM\Column(length: 255, nullable: true)]
-    private ?string $Ville = null;
 
     #[ORM\Column(length: 255)]
     private ?string $civilite = null;
@@ -202,7 +200,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getVille()
     {
-        return $this->Ville;
+        return $this->ville;
     }
 
     /**
@@ -210,9 +208,9 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      *
      * @return  self
      */
-    public function setVille($Ville)
+    public function setVille($ville)
     {
-        $this->Ville = $Ville;
+        $this->ville = $ville;
 
         return $this;
     }
