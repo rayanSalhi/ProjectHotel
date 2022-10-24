@@ -38,6 +38,35 @@ video {
 	</style>
 {% endblock %}
 
+<<<<<<< HEAD
+=======
+		{% block body %}
+			<body>
+			{# 
+																							</li>
+																							<li class="nav-item active">
+																								<a class="nav-link" href="{{path('app_liste_chambre')}}">Nos chambres</a>
+																							</li>
+																							<li class="nav-item">
+																								<a class="nav-link" href="#">placeholder</a>
+																							</li>
+																							<li class="nav-item active">
+																								{% if app.user %}
+																									<a class="nav-link" href="{{path('app_reservation')}}">Ma reservation</a>
+																								{% else %}
+																									<a class="nav-link" href="{{path('app_login')}}">Connexion</a>
+																								{% endif %}
+																							</li>
+																							<li class="nav-item active">
+																								{% if app.user %}
+																									<a class="nav-link" href="{{path('app_logout')}}">Logout</a>
+																								{% else %}
+																									<a class="nav-link" href="{{path('app_register')}}">Inscription</a>
+																								{% endif %}
+																							</li>
+																					
+																							#}
+>>>>>>> origin/Adresse2
 
 	{% block body %}
 		<body>
@@ -133,17 +162,22 @@ video {
 		
 				<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 					<div class="offcanvas-header">
-						<h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
+						<h2 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h2>
 						<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 					</div>
+					<hr>
+
 					<div class="offcanvas-body">
 						{% block menuGauche %}
 							<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 							<li class="nav-item">
 									<a class="nav-link" href="{{path('story')}}">
-										NOTRE HISTOIRE
+										<h5 style="color:green;  ">
+											QUI SOMMES NOUS?
+										</h5>
 									</a>
 								</li>
+<<<<<<< HEAD
 								<br>
 								<li class="nav-item">
 									<a class="nav-link active" aria-current="page" href="{{path('app_calendar_new')}}">
@@ -151,8 +185,13 @@ video {
 								</li>
 							<br>
 							
+=======
+							</ul>
+							<ul class="menu d-flex justify-content-end ">
+>>>>>>> origin/Adresse2
 								<li class="nav-item">
-									NOS CHAMBRES
+									<h5 style="color:green;  ">
+										NOS CHAMBRES</h5>
 									<ul class="sub-menu">
 										<li>
 											<a href="{{path('typeCategory',{'category': 1 })}}">
@@ -302,30 +341,30 @@ class="corps">
 		</div>
 		<!-- Left -->
 
-		<!-- Right -->
-		<div>
-			<a href="" class="me-4 text-reset">
-				<i class="fab fa-facebook-f"></i>
-			</a>
-			<a href="" class="me-4 text-reset">
-				<i class="fab fa-twitter"></i>
-			</a>
-			<a href="" class="me-4 text-reset">
-				<i class="fab fa-google"></i>
-			</a>
-			<a href="" class="me-4 text-reset">
-				<i class="fab fa-instagram"></i>
-			</a>
-			<a href="" class="me-4 text-reset">
-				<i class="fab fa-linkedin"></i>
-			</a>
-			<a href="" class="me-4 text-reset">
-				<i class="fab fa-github"></i>
-			</a>
-		</div>
-		<!-- Right -->
-	</section>
-	<!-- Section: Social media -->
+			<!-- Right -->
+			<div>
+				<a href="" class="me-4 text-reset">
+					<i class="fab fa-facebook-f"></i>
+				</a>
+				<a href="" class="me-4 text-reset">
+					<i class="fab fa-twitter"></i>
+				</a>
+				<a href="" class="me-4 text-reset">
+					<i class="fab fa-google"></i>
+				</a>
+				<a href="" class="me-4 text-reset">
+					<i class="fab fa-instagram"></i>
+				</a>
+				<a href="" class="me-4 text-reset">
+					<i class="fab fa-linkedin"></i>
+				</a>
+				<a href="" class="me-4 text-reset">
+					<i class="fab fa-github"></i>
+				</a>
+			</div>
+			<!-- Right -->
+		</section>
+		<!-- Section: Social media -->
 
 	<!-- Section: Links  -->
 	<section class="">
@@ -343,54 +382,58 @@ class="corps">
 					</h6>
 					<p>
 						Here you can use rows and columns to organize your footer content. Lorem ipsum
+<<<<<<< HEAD
 						dolor sit amet, consectetur adipisicing elit.
+=======
+																																																																																																																            dolor sit amet, consectetur adipisicing elit.
+>>>>>>> origin/Adresse2
 					</p>
 				</div>
 				<!-- Grid column -->
 
-				<!-- Grid column -->
-				<div
-					class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-					<!-- Links -->
-					<h6 class="text-uppercase fw-bold mb-4">
-						Products
-					</h6>
-					<p>
-						<a href="#!" class="text-reset">Angular</a>
-					</p>
-					<p>
-						<a href="#!" class="text-reset">React</a>
-					</p>
-					<p>
-						<a href="#!" class="text-reset">Vue</a>
-					</p>
-					<p>
-						<a href="#!" class="text-reset">Laravel</a>
-					</p>
-				</div>
-				<!-- Grid column -->
+					<!-- Grid column -->
+					<div
+						class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+						<!-- Links -->
+						<h6 class="text-uppercase fw-bold mb-4">
+							Products
+						</h6>
+						<p>
+							<a href="#!" class="text-reset">Angular</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">React</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Vue</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Laravel</a>
+						</p>
+					</div>
+					<!-- Grid column -->
 
-				<!-- Grid column -->
-				<div
-					class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-					<!-- Links -->
-					<h6 class="text-uppercase fw-bold mb-4">
-						Useful links
-					</h6>
-					<p>
-						<a href="#!" class="text-reset">Pricing</a>
-					</p>
-					<p>
-						<a href="#!" class="text-reset">Settings</a>
-					</p>
-					<p>
-						<a href="#!" class="text-reset">Orders</a>
-					</p>
-					<p>
-						<a href="#!" class="text-reset">Help</a>
-					</p>
-				</div>
-				<!-- Grid column -->
+					<!-- Grid column -->
+					<div
+						class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+						<!-- Links -->
+						<h6 class="text-uppercase fw-bold mb-4">
+							Useful links
+						</h6>
+						<p>
+							<a href="#!" class="text-reset">Pricing</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Settings</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Orders</a>
+						</p>
+						<p>
+							<a href="#!" class="text-reset">Help</a>
+						</p>
+					</div>
+					<!-- Grid column -->
 
 				<!-- Grid column -->
 				<div
