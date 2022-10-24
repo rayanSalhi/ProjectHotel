@@ -42,34 +42,34 @@ video {
 		{% block body %}
 			<body>
 			{# 
-																							</li>
-																							<li class="nav-item active">
-																								<a class="nav-link" href="{{path('app_liste_chambre')}}">Nos chambres</a>
-																							</li>
-																							<li class="nav-item">
-																								<a class="nav-link" href="#">placeholder</a>
-																							</li>
-																							<li class="nav-item active">
-																								{% if app.user %}
-																									<a class="nav-link" href="{{path('app_reservation')}}">Ma reservation</a>
-																								{% else %}
-																									<a class="nav-link" href="{{path('app_login')}}">Connexion</a>
-																								{% endif %}
-																							</li>
-																							<li class="nav-item active">
-																								{% if app.user %}
-																									<a class="nav-link" href="{{path('app_logout')}}">Logout</a>
-																								{% else %}
-																									<a class="nav-link" href="{{path('app_register')}}">Inscription</a>
-																								{% endif %}
-																							</li>
-																					
-																							#}
+																																</li>
+																																<li class="nav-item active">
+																																	<a class="nav-link" href="{{path('app_liste_chambre')}}">Nos chambres</a>
+																																</li>
+																																<li class="nav-item">
+																																	<a class="nav-link" href="#">placeholder</a>
+																																</li>
+																																<li class="nav-item active">
+																																	{% if app.user %}
+																																		<a class="nav-link" href="{{path('app_reservation')}}">Ma reservation</a>
+																																	{% else %}
+																																		<a class="nav-link" href="{{path('app_login')}}">Connexion</a>
+																																	{% endif %}
+																																</li>
+																																<li class="nav-item active">
+																																	{% if app.user %}
+																																		<a class="nav-link" href="{{path('app_logout')}}">Logout</a>
+																																	{% else %}
+																																		<a class="nav-link" href="{{path('app_register')}}">Inscription</a>
+																																	{% endif %}
+																																</li>
+																														
+																																#}
 
 				<div
 				class="background"> <!-- Carousel wrapper -->
 				<div
-					id="carouselVideoExample" class="carousel slide carousel-fade" data-mdb-ride="carousel">
+					id="carouselVideoExample" class="carousel slide cfarousel-fade" data-mdb-ride="carousel">
 					<!-- Indicators -->
 					<div class="carousel-indicators">
 						<button type="button" data-mdb-target="#carouselVideoExample" data-mdb-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
@@ -158,14 +158,16 @@ video {
 						<h2 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h2>
 						<button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
 					</div>
-					<hr>
 
 					<div class="offcanvas-body">
 						{% block menuGauche %}
 							<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
 								<li class="nav-item">
 									<a class="nav-link active" aria-current="page" href="{{path('app_calendar_new')}}">
-										RESERVER UNE CHAMBRE</a>
+										<h5 style="color:green;  ">
+											RESERVER UNE CHAMBRE
+										</h5>
+									</a>
 								</li>
 								<li class="nav-item">
 									<a class="nav-link" href="{{path('story')}}">
@@ -179,6 +181,8 @@ video {
 								<li class="nav-item">
 									<h5 style="color:green;  ">
 										NOS CHAMBRES</h5>
+									<hr>
+
 									<ul class="sub-menu">
 										<li>
 											<a href="{{path('typeCategory',{'category': 3 })}}">
@@ -194,8 +198,10 @@ video {
 								<a href="{{path('typeCategory',{'category': 5 })}}">Suite</a>
 							</li>
 						</li>
+
 					</ul>
 				</ul>
+
 			</body>
 		</html>
 	</div>
@@ -361,7 +367,7 @@ video {
 					</h6>
 					<p>
 						Here you can use rows and columns to organize your footer content. Lorem ipsum
-																																																																																																																            dolor sit amet, consectetur adipisicing elit.
+																																																																																																																																		            dolor sit amet, consectetur adipisicing elit.
 					</p>
 				</div>
 				<!-- Grid column -->
