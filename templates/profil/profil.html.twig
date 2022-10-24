@@ -15,7 +15,7 @@
 		<div class='row'>
 			<div class="d-flex justify-content-center text-success">
 
-				<h1 style="color:green;  ">
+				<h1 style="color: #53736A;  ">
 					PARAS-LODGE-HÔTEL
 				</h1>
 
@@ -38,7 +38,7 @@
 					<h5></div>
 
 
-					<h2 style='margin-left : 12%'>VOTRE PROFIL</h2>
+					<h3 style='margin-left : 12%'>VOTRE PROFIL</h3>
 					<br>
 				</div>
 
@@ -57,11 +57,17 @@
 						</h5>
 						<br>
 						<br>
-						<h5 style="color:green;  ">VOTRE PROFIL    ></h5>
-
+						{# lien de redirection #}
+						<a href="{{ path('app_profil') }}">
+							<h5 style="color:#53736A;  ">
+								Votre profil          ></h5>
+						</a>
 						<br>
-
-						<H5 style="color:green;  ">VOS RESERVATIONS     ></H5>
+						{# lien de redirection #}
+						<a href="{{ path('reservation') }}">
+							<h5 style="color:#53736A;  ">
+								Vos réservations           ></h5>
+						</a>
 					</div>
 
 
