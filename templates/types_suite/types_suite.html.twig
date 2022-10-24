@@ -133,7 +133,11 @@
 						</table>
 					</p>
 				</div>
-				<button type="button " class="btn btn-outline-dark">Réserver</button>
+					{% if chambre.id == chambre.id %}
+
+					<a href="{{path('order',{'id':chambre.id})}}" type="button " class="btn btn-outline-dark">re</a>
+				{% endif %}
+			
 			</div>
 		</div>
 	{% endfor %}

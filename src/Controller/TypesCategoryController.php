@@ -18,11 +18,8 @@ class TypesCategoryController extends AbstractController
         $chambres = $repository->getChambreParCategory($category);
 
         return $this->render('types_category/types_superieur.html.twig', [
-            'chambres' => $chambres,
+            'chambres' => $chambres
 
         ]);
     }
-   
-
-    
 }

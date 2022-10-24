@@ -107,7 +107,7 @@
 		{% for chambre in chambres %}
 			<div class="col-12 col-md-6 col-lg-4 col-xl-3 ">
 
-				<div class="card border-dark mb-3 mx-auto " id="options" style="max-width:20rem ; height:500px">
+				<div class="card border-dark mb-3 mx-auto " id="options" style="max-width:20rem ; height:600px">
 					<div class="card-header text-center ">
 						<img src="/uploads/{{chambre.illustration}}" class="img-fluid " style="height:200px;width:500px">
 					</div>
@@ -133,8 +133,12 @@
 						</table>
 					</p>
 				</div>
-				<button type="button " class="btn btn-outline-dark">Réserver</button>
+				{# {% if chambre.id == chambre.id %} #}
+
+					<a href="{{path('order')}}" type="button " class="btn btn-outline-dark">re</a>
+				{# {% endif %} #}
+
 			</div>
 		</div>
 	{% endfor %}
-{% endblock %}
+</div>{% endblock %}

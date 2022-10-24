@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Valider ma réservation
+{% endblock %}
+
+{% block body %}
+
+	<h2>Je passe ma commande</h2>
+	<p>Choisissez votre mode de paiement</p>
+	<hr>
+	<div class="row">
+		<div class="col-md-6">
+			<b>Choisir mon adresse de livraison</b><br/>
+			{% set formHtml %}
+			{{form(form)}}
+			{% endset %}
+			</div>
+			<div class="col-md-6">
+				<b>Récap de ma commande</b><br/>
+				<b>Bouton pour payer</b>
+			</div>
+
+
+		</div>
+
+	{% endblock %}

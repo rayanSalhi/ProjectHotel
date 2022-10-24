@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une adresse
+{% endblock %}
+
+{% block body %}
+
+	<h1>Gérer mes adresses</h1>
+	<hr>
+	<a href="{{path('adresse')}}">Retour</a>
+	<hr>
+	{{form_start(form)}}
+	<div class="row">
+		<div class="col-md-6">{{form_row(form.Name)}}</div>
+		<div class="col-md-6">{{form_row(form.Firstname)}}</div>
+		<div class="col-md-6">{{form_row(form.Lastname)}}</div>
+		<div class="col-md-6">{{form_row(form.Company)}}</div>
+		<div class="col-md-6">{{form_row(form.Adresse)}}</div>
+		<div class="col-md-6">{{form_row(form.CP)}}</div>
+		<div class="col-md-6">{{form_row(form.City)}}</div>
+		<div class="col-md-6">{{form_row(form.Pays)}}</div>
+		<div class="col-md-6">{{form_row(form.Phone)}}</div>
+	</div>
+	{{form_end(form)}}
+
+{% endblock %}
