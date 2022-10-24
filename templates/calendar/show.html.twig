@@ -5,7 +5,6 @@
 {% block style %}
     <style>
     .corps {
-	    margin: 0;
 	    background: white  !important; 
     }
     </style>
@@ -17,23 +16,23 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>Numéro de réservation</th>
                 <td>{{ calendar.id }}</td>
             </tr>
             <tr>
-                <th>Start</th>
-                <td>{{ calendar.Start ? calendar.Start|date('Y-m-d H:i:s') : '' }}</td>
+                <th>Début du séjour</th>
+                <td>{{ calendar.Start ? calendar.Start|date('d-m-Y H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>End</th>
-                <td>{{ calendar.End ? calendar.End|date('Y-m-d H:i:s') : '' }}</td>
+                <th>Fin du séjour</th>
+                <td>{{ calendar.End ? calendar.End|date('d-m-Y H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_calendar_index') }}">back to list</a>
+    <a href="{{ path('app_calendar_index') }}">Retour à la liste des réservations</a>
 
-    <a href="{{ path('app_calendar_edit', {'id': calendar.id}) }}">edit</a>
+    <a href="{{ path('app_calendar_edit', {'id': calendar.id}) }}">Éditer</a>
 
     {{ include('calendar/_delete_form.html.twig') }}
 {% endblock %}

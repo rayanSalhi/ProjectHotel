@@ -2,8 +2,6 @@
 
 namespace App\Entity;
 
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
@@ -20,24 +18,24 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?int $id = null;
 
-
-
-
-
     #[ORM\Column(length: 255)]
     private ?string $FirstName = null;
 
     #[ORM\Column(length: 255)]
     private ?string $LastName = null;
 
-    #[ORM\Column(length: 255, nullable : true)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $Adresse = null;
 
-    // #[ORM\Column(length: 255)]
-    // private ?string $CP = null;
 
-    // #[ORM\Column(length: 255)]
-    // private ?string $Telephone = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Ville = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $CP = null;
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Telephone = null;
 
     #[ORM\Column(length: 180, unique: true)]
     #[Assert\Email(message: '{{ value }} n\'est pas une email valide.')]
@@ -53,8 +51,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private array $roles = [];
 
-    // #[ORM\Column(length: 255)]
-    // private ?string $Ville = null;
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Ville = null;
 
     #[ORM\Column(length: 255)]
     private ?string $civilite = null;
@@ -136,15 +134,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-
-    public function setVille(string $Ville): self
-    {
-        $this->Ville = $Ville;
-
-        return $this;
-    }
-
-
     public function getTelephone(): ?string
     {
         return $this->Telephone;
@@ -214,11 +203,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         return $this;
     }
 
-    public function getVille(): ?string
-    {
-        return $this->Ville;
-    }
-
     public function getCivilite(): ?string
     {
         return $this->civilite;
@@ -232,61 +216,21 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     }
 
     /**
-     * @return Collection<int, Order>
+     * Get the value of Ville
      */
-    public function getOrders(): Collection
+    public function getVille()
     {
-        return $this->orders;
-    }
-
-    public function addOrder(Order $order): self
-    {
-        if (!$this->orders->contains($order)) {
-            $this->orders->add($order);
-            $order->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeOrder(Order $order): self
-    {
-        if ($this->orders->removeElement($order)) {
-            // set the owning side to null (unless already changed)
-            if ($order->getUser() === $this) {
-                $order->setUser(null);
-            }
-        }
-
-        return $this;
+        return $this->Ville;
     }
 
     /**
-     * @return Collection<int, Adresse>
+     * Set the value of Ville
+     *
+     * @return  self
      */
-    public function getAdresses(): Collection
+    public function setVille($Ville)
     {
-        return $this->adresses;
-    }
-
-    public function addAdress(Adresse $adress): self
-    {
-        if (!$this->adresses->contains($adress)) {
-            $this->adresses->add($adress);
-            $adress->setUser($this);
-        }
-
-        return $this;
-    }
-
-    public function removeAdress(Adresse $adress): self
-    {
-        if ($this->adresses->removeElement($adress)) {
-            // set the owning side to null (unless already changed)
-            if ($adress->getUser() === $this) {
-                $adress->setUser(null);
-            }
-        }
+        $this->Ville = $Ville;
 
         return $this;
     }

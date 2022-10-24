@@ -2,18 +2,80 @@
 
 {% block title %}Votre reservation{% endblock %}
 
-{% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-	{% block nav %}
-	{% endblock %}
-    <div class = "example-wrapper">
-       <h1>Afficher la reservation</h1>
-    </div>
+{% block style %}
+	<style>
 
+		.titre {
+			text-align: center;
+		}
+
+		.img-fluid {
+			height: auto;
+			width: 55%;
+            border-radius: 50%;
+            margin-left: 20%;          
+        }
+	.card1{
+    width: 30rem;
+    margin-left: 5%; 
+    border-radius: 25px;
+    background: #53736A;
+    }
+
+    .card2{
+    width: 30rem;
+    margin-left: 5%; 
+    border-radius: 25px;
+    background: #53736A;
     
+    }
+    a{
+    text-decoration: none;
+    hover
+    }
+	</style>
 
 {% endblock %}
+
+
+	 {% block body %}
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="{{path('index')}}">Home</a>
+             <h1>Ma reservation</h1> <br>
+             </div>
+      </nav>
+      {# afficher la page calendar/ #}
+   
+<div class="reservation">
+<img src="/asset/images/RESERVED.jpg" class="img-fluid" alt="Reserver">
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    <div class="card1">
+<div class="card-body">
+<h4 class="card-title">VOS RÉSERVATIONS</h4>
+<p class="card-text">Vous avez réservez. ajout nom de la chambre</p>
+{# <a href="{{ path('app_calendar_show', {'id': calendar.id}) }}"></a> #}
+<p> Arrivé le : ajout date via calendar  </p>
+<p> Départ le : ajout date via calendar</p>
+</div>
+</div>
+</div>
+    <div class="col">
+    <div class="card2">
+<div class="card-body">
+<a href="{{path('app_calendar_new')}}"><h6>AJOUTER UNE RÉSERVATION  <i class="bi-chevron-right"></i></h6></a> <br>
+<a href="{{path('app_calendar_index')}}"><h6>MODIFIER VOTRE RÉSERVATION <i class="bi-chevron-right"></i></h6></a> <br>
+<a href="{{path('app_calendar_index')}}"><h6>ANNULER VOTRE RÉSERVATION <i class="bi-chevron-right"></i></h6></a> <br>
+
+</div>
+</div>
+</div>
+
+{% endblock %}
+

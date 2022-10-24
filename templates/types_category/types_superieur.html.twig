@@ -10,6 +10,13 @@
 		body {
 			background-color: white;
 		}
+		h1,h3{
+			text-align: center;
+			color:#53736A;
+		}
+		li{
+			margin-left: 30%;
+		}
 	</style>
 {% endblock %}
 {% block body %}
@@ -17,6 +24,8 @@
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
 			<a class="navbar-brand" href="{{path('index')}}">Home</a>
+             <h1>PARAS-LODGE-HÔTEL</h1> <br>
+             </div>
 
 			<div class="collapse navbar-collapse" id="navbarNav">
 				<ul class="navbar-nav">
@@ -28,37 +37,34 @@
 			</div>
 		</div>
 	</nav>
-	<br/>
+	
 	<!-- navbar -->
-	<h1 class="text-center">PARAS-LODGE-HÔTEL</h1>
-	<br/>
-	<h2 class="text-center">Chambre Double Supérieure</h2>
+	<h3 class="text-center">Chambre Double Supérieure</h3>
 	{# lien des catégories #}
 	<div class="container">
 		<div class="d-flex justify-content-end">
-			<button style="height: 50px ;width: 200px" class="bouton">
-				<a style="text-decoration:none" class="text-dark" href="{{path('typeSuite',{'category': 5 })}}">
-					Suite</a>
+			<button style="height: 30px ;width: 250px" class="bouton">
+				<a style="text-decoration:none" class="text-dark" href="{{path('typeSuite',{'category': 1 })}}">
+					Suite Junior</a>
 			</button>
-
 		</div>
 		<br/>
 	</div>
 	<div class="container">
 		<div class="d-flex justify-content-end">
-			<button style="height: 30px ;width: 200px" class="bouton">
-				<a style="text-decoration:none" class="text-dark" href="{{path('typeDouble',{'category': 4 })}}">Chambre Double Deluxe</a>
+			<button style="height: 30px ;width: 250px" class="bouton">
+				<a style="text-decoration:none" class="text-dark" href="{{path('typeDouble',{'category': 3 })}}">Chambre Double Deluxe</a>
 			</button>
 		</div>
 	</div>
 	{# lien des catégories #}
-	<br/>
 
-	<div class="row" id="options" style="width:50%;height:20%">
 
-		<h5>Options disponible dans les chambres</h5>
+	<div class="row" id="options" style="width:65%;height:auto">
+
+		<h6>Options disponible dans les chambres</h6>
 		<div class="col-md-4">
-			<br/>
+		
 			<!-- Default checkbox -->
 			<div class="form-check">
 				<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" checked/>
@@ -80,7 +86,7 @@
 		<div
 			class="col-md-4">
 			<!-- Checked checkbox -->
-			<br/>
+			
 			<div class="form-check">
 				<input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked/>
 				<label class="form-check-label" for="flexCheckChecked">TV écran plat</label><br/>
