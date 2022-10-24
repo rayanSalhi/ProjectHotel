@@ -38,35 +38,6 @@ video {
 	</style>
 {% endblock %}
 
-<<<<<<< HEAD
-		{% block body %}
-			<body>
-			{# 
-														</li>
-														<li class="nav-item active">
-															<a class="nav-link" href="{{path('app_liste_chambre')}}">Nos chambres</a>
-														</li>
-														<li class="nav-item">
-															<a class="nav-link" href="#">placeholder</a>
-														</li>
-														<li class="nav-item active">
-															{% if app.user %}
-																<a class="nav-link" href="{{path('app_reservation')}}">Ma reservation</a>
-															{% else %}
-																<a class="nav-link" href="{{path('app_login')}}">Connexion</a>
-															{% endif %}
-														</li>
-														<li class="nav-item active">
-															{% if app.user %}
-																<a class="nav-link" href="{{path('app_logout')}}">Logout</a>
-															{% else %}
-																<a class="nav-link" href="{{path('app_register')}}">Inscription</a>
-															{% endif %}
-														</li>
-												
-														#}
-=======
->>>>>>> origin/calendarV2
 
 	{% block body %}
 		<body>
@@ -139,7 +110,8 @@ video {
 				</div>
 				<!-- Carousel wrapper -->
 			{% endblock %}
-
+			
+	
 			<nav class="navbar navbar-light bg-light fixed-top">
 				<div
 					class="container-fluid">
@@ -155,10 +127,10 @@ video {
 
 				</div>
 			</nav>
-
+		
 			{# config 1 #}
 			{# menu a gauche #}
-
+		
 				<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
 					<div class="offcanvas-header">
 						<h5 class="offcanvas-title" id="offcanvasNavbarLabel">MENU</h5>
@@ -167,40 +139,45 @@ video {
 					<div class="offcanvas-body">
 						{% block menuGauche %}
 							<ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-								<li class="nav-item">
-									<a class="nav-link active" aria-current="page" href="{{path('app_calendar_new')}}">
-										RESERVER UNE CHAMBRE</a>
-								</li>
-								<li class="nav-item">
+							<li class="nav-item">
 									<a class="nav-link" href="{{path('story')}}">
 										NOTRE HISTOIRE
 									</a>
 								</li>
-							</ul>
-							<ul class="menu">
+								<br>
+								<li class="nav-item">
+									<a class="nav-link active" aria-current="page" href="{{path('app_calendar_new')}}">
+										RESERVER UNE CHAMBRE</a>
+								</li>
+							<br>
+							
 								<li class="nav-item">
 									NOS CHAMBRES
 									<ul class="sub-menu">
 										<li>
-											<a href="{{path('typeCategory',{'category': 3 })}}">
+											<a href="{{path('typeCategory',{'category': 1 })}}">
 												Chambre Double Supérieure</a>
 										</li>
-									</li>
-								</li>
 								<li>
-									<a href="{{path('typeDouble',{'category': 4 })}}">Chambre Double Deluxe</a>
+									<a href="{{path('typeDouble',{'category': 3 })}}">Chambre Double Deluxe</a>
 								</li>
-							</li>
+							
 							<li>
-								<a href="{{path('typeSuite',{'category': 5 })}}">Suite</a>
+								<a href="{{path('typeSuite',{'category': 2 })}}">Suite Junior</a>
 							</li>
-						</li>
 					</li>
+					</ul>
+					
 				</ul>
 			</body>
 		</html>
 	</div>
-</div>{% endblock %}{# config 2 #}{#menu a droite  #}<div class="offcanvas offcanvas-end {% if ('/registration/register.html.twig') %} show {% endif %}" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbarLabel">
+</div>{% endblock %}
+		
+
+{# config 2 #}
+{#menu a droite  #}
+<div class="offcanvas offcanvas-end {% if ('/registration/register.html.twig') %} show {% endif %}" tabindex="-1" id="offcanvasNavbar2" aria-labelledby="offcanvasNavbarLabel">
 <div class="offcanvas-header">
 {% block CanvasTitle %}
 	<h5 class="offcanvas-title" id="offcanvasNavbarLabel">Se connecter</h5>
@@ -228,6 +205,7 @@ video {
 		<a class="nav-link" href="{{path('app_login')}}">>Se connecter</a>
 	{% endif %}
 {% endblock %}
+
 
 </div></div></div><div
 class="corps">

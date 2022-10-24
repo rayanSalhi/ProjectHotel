@@ -1,0 +1,87 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pas de réservation {% endblock %}
+
+{% block style %}
+	<style>
+   body {
+    background: white;
+   }
+   .img-fluid {
+    
+			height: auto%;
+			 width: 90%;
+            border-radius: 5%;
+          
+        }
+        .card1{
+    
+    height:auto;   
+    width:100%;
+    }
+    .shadow {
+    margin-top: 35%;
+    }
+     a{
+    text-decoration: none;
+   
+    }
+    p{
+        background: black;
+        color: white;
+    }
+    h5{
+         margin-top: 2%;
+         text-align: center;
+    }
+    h1{
+        color:#53736A;
+    }
+    .bouton{
+        background: black;
+        color: white;
+        text-align: center;
+        width: 90%;
+       
+    }
+  
+</style>
+
+{% endblock %}
+
+ {% block body %}
+
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="{{path('index')}}">Home</a>
+             <h1>PARAS-LODGE-HÔTEL</h1> <br>
+             </div>
+      </nav>
+      {# colonne votre compte  #}
+<div class="row g-0">
+  <div class="col-6 col-md-3">
+  <div class="col">
+  <div class="shadow p-3 mb-5 bg-body rounded">
+     <div class="card1">
+     <h3>Votre compte</h3>
+     <p>Membre {% if is_granted('ROLE_ADMIN') %} Administrateur {% else %} Classique {% endif %}</p> <br> <br>
+<a href="{{ path('reservation') }}"><h6>Votre profil > </h6> </a> <br> <br>
+<a href="{{ path('reservation') }}"><h6>Vos réservation > </h6> </a> <br> <br> <br>
+</div>
+    </div>
+    </div>
+  </div>
+  {# colonne image #}
+  <div class="col-sm-6 col-md-9">
+   <div class="col">
+<div class="no_reservation">
+<h5>Bienvenue, {{app.user.FirstName}} !</h5>
+<img src="/asset/images/plage.jpg" class="img-fluid" alt="no_Reserver"><br>
+<br>
+<a href="{{ path('reservation') }}"><button class="bouton">RÉSERVATION</button></a>
+
+</div>
+    </div>
+  </div>
+</div>
+ {% endblock %}

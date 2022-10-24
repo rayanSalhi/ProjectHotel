@@ -2,6 +2,13 @@
 
 {% block title %}Mes réservations
 {% endblock %}
+{% block style %}
+<style>
+body{
+    background: white;
+}
+</style>
+{% endblock %}
 
 {% block body %}
 	<h1>Mes réservations</h1>
@@ -9,18 +16,18 @@
 	<table class="table">
 		<thead>
 			<tr>
-				<th>Id</th>
-				<th>Start</th>
-				<th>End</th>
-				<th>actions</th>
+				<th>Numéro de réservation</th>
+				<th>Début du séjour</th>
+				<th>Fin du séjour </th>
+				<th>Éditer ma reservation </th>
 			</tr>
 		</thead>
 		<tbody>
 			{% for calendar in calendars %}
 				<tr>
 					<td>{{ calendar.id }}</td>
-					<td>{{ calendar.Start ? calendar.Start|date('Y-m-d H:i:s') : '' }}</td>
-					<td>{{ calendar.End ? calendar.End|date('Y-m-d H:i:s') : '' }}</td>
+					<td>{{ calendar.Start ? calendar.Start|date('d-m-Y H:i:s') : '' }}</td>
+					<td>{{ calendar.End ? calendar.End|date('d-m-Y H:i:s') : '' }}</td>
 					<td>
 						<a href="{{ path('app_calendar_show', {'id': calendar.id}) }}">Aperçu de ma réservation</a>
 						<a href="{{ path('app_calendar_edit', {'id': calendar.id}) }}">Modifier ma réservation</a>

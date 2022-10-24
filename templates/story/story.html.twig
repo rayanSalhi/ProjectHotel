@@ -1,31 +1,43 @@
 {% extends 'base.html.twig' %}
 
-{% block title %} NOTRE HISTOIRE {% endblock %}
+{% block title %}
+	NOTRE HISTOIRE
+{% endblock %}
 
 {% block style %}
-<style>
+	<style>
 
-.titre {
-    text-align: center;
-    background-color : bisque;
-    
-}
-</style>
+		.titre {
+			text-align: center;
+		}
+
+		.img-fluid {
+			height: 350px;
+			width: 100%;
+		}
+	</style>
 {% endblock %}
 
 {% block body %}
-
-<div class="gallery">
-    <img src="/asset/images/reception-hotel.webp" alt="Reception" width="1700" height="500">
+{# redirection page acceuil #}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand" href="{{path('index')}}">Home</a>
+            <h1>NOTRE HISTOIRE</h1><br>
 </div>
+</nav>
 
+<div class="story">
+<img src="/asset/images/reception-hotel.webp" class="img-fluid" alt="Reception">
 <div class="titre">
-  
-    <h1>NOTRE HISTOIRE</h1><br>
-    <p>Nous somme une jeune équipe de developpeur, qui aimont travailler partout dans le monde dans des lieux extraordianaire et prestigieux, <br> notre amours des lieux prestigieux fait que nous avons ouvert notre propre hôtel avec des chambres aussi confortable que prestigieuse.<br> Autem excepturi veniam nemo. Ipsum maiores quo dolore voluptate natus laudantium quae inventore dolores, <br> provident recusandae quia quos, quas sint modi delectus.</p><br>
-    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. <br> Unde, deleniti praesentium cum commodi modi velit maiores error provident soluta impedit corporis sint, <br> eius temporibus ipsum expedita ea consequuntur nobis laudantium!</p>
+
+<p>Nous somme une jeune équipe de developpeur, qui aimons travailler partout dans le monde dans des lieux extraordianaire et prestigieux,
+<br>notre amours des lieux prestigieux fait que nous avons ouvert notre propre hôtel avec des chambres aussi confortable que prestigieuse.
+<br>Autem excepturi veniam nemo. Ipsum maiores quo dolore voluptate natus laudantium quae inventore dolores,
+<br>provident recusandae quia quos, quas sint modi delectus.</p>
+<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+<br>Unde, deleniti praesentium cum commodi modi velit maiores error provident soluta impedit corporis sint,
+<br>eius temporibus ipsum expedita ea consequuntur nobis laudantium!</p>
 </div>
-
-
-
+</div>
 {% endblock %}

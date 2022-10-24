@@ -21,10 +21,6 @@
   box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
-.video {
-  z-index: -1;
-  -webkit-filter: grayscale(60%);
-}
 
 .offcanvas-body {
   color: black;
@@ -76,7 +72,7 @@
 }
 
 .sub-menu li:hover {
-  background: bisque;
+  background: whitesmoke;
 }
 
 .menu>li:hover .sub-menu li {
@@ -86,3 +82,4 @@
 .menu>li:hover .sub-menu {
   transform: scale(1);
 }
+

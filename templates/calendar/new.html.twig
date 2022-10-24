@@ -2,12 +2,24 @@
 
 {% block title %}Ma réservation{% endblock %}
 
+{% block style %}
+<style>
+body{
+    background: white;
+}
+h2{
+    color:#53736A;
+}
+</style>
+{% endblock %}
+
 {% block content %}
-    <div class="d-flex justify-content-center border mt-5">
-        <h1 class="mt-5 mb-5">Je réserve un séjour</h1>
+    <div class="d-flex justify-content-center border mt-3">
+        <h2 class="mt-5 mb-5">Je réserve un séjour</h2>
     </div>
     {{ include('calendar/_form.html.twig') }}
     {# <a href="{{ path('app_calendar_index') }}">back to list</a> #} 
+    
 {% endblock %}
 
 
