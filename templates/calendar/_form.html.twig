@@ -27,30 +27,32 @@ body{
     let form = document.querySelector('form');
           
     let Validation = function (e) {
-        if ((
-            yearStart > yearEnd) 
+        if (
+            (yearStart > yearEnd) 
             || ((monthStart > monthEnd) && (yearStart == yearEnd)) 
             || ((dayStart > dayEnd) && (yearStart == yearEnd) && (monthStart == monthEnd))
             ){ 
                 e.preventDefault();
                 alert('Veuiller saisir une date valide'); 
+            }
+            form.addEventListener("input", function(){
                 yearStart = document.querySelector('#calendar_Start_date_year').value;
                 yearEnd = document.querySelector('#calendar_End_date_year').value;
                 monthStart = document.querySelector('#calendar_Start_date_month').value;
                 monthEnd = document.querySelector('#calendar_End_date_month').value;  
                 dayStart = document.querySelector('#calendar_Start_date_day').value;
                 dayEnd = document.querySelector('#calendar_End_date_day').value;  
-            }else{
                 console.log(yearStart);     
                 console.log(yearEnd);  
                 console.log(monthStart);     
                 console.log(monthEnd);   
                 console.log(dayStart);  
                 console.log(dayEnd);  
-            }
+            });
     }
     
-    window.addEventListener("load", Validation);
-    form.addEventListener("submit", Validation);   
+    form.addEventListener("submit", Validation);  
+
+
 
 </script>
