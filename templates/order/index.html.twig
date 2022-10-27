@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Valider ma commande
+{% endblock %}
+
+{% block body %}
+	<h2>Je passe ma commande</h2>
+	<hr>
+	<div class="row">
+		<div class="col-md-6">
+			<b>Vos informations</b><br/>
+			{% if app.user %}
+
+									{{app.user.civilite}}
+									{{app.user.firstName}}
+									{{app.user.LastName}}
+									<br/>
+									{{app.user.adresse}}
+									<br/>
+									{{app.user.CP}}-
+									{{app.user.ville}}
+									<br/>		
+			
+				{% endif %}
+				<b>Modifier mon adresse de livraison</b>
+			</div>
+			<div class="col-md-6">
+				<b>Récap de ma commande</b><br/>
+			{% for chambre in chambres %}
+			<div class="row">
+			<div class="col-5-my-auto">
+				<img src="/uploads/{{chambre.illustration}}" class="img-fluid " style="height:200px;width:500px">
+			</div>
+			<div class="col-8-my-auto">
+			{{chambre.name}}
+			</div>
+			<div class="col-2">
+			{{chambre.price}} €
+			</div>
+			</div>
+			{% endfor %}
+			
+			
+				<button type="button " class="btn btn-outline-dark"><a href="{{path("app_calendar_new")}}" >Payer</a></button>
+			</div>
+		</div>
+	{% endblock %}

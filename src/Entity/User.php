@@ -2,9 +2,11 @@
 
 namespace App\Entity;
 
-use Symfony\Component\Validator\Constraints as Assert;
 use Doctrine\ORM\Mapping as ORM;
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\ArrayCollection;
+use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Symfony\Component\Security\Core\User\PasswordAuthenticatedUserInterface;
@@ -27,6 +29,10 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $Adresse = null;
 
+
+    #[ORM\Column(length: 255, nullable: true)]
+    private ?string $Ville = null;
+
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $CP = null;
 
@@ -43,6 +49,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column]
     private ?string $password = null;
 
+
     #[ORM\Column]
     private array $roles = [];
 
@@ -50,8 +57,22 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(length: 255)]
     private ?string $civilite = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $ville = null;
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: Order::class)]
+    private Collection $orders;
+
+    public function __construct()
+    {
+        $this->orders = new ArrayCollection();
+    }
+
+
+
+    public function __toString()
+    {
+        return  $this->getFirstName() . '[br]' . $this->getLastName() . '[br]' . $this->getAdresse() . '[br]' . $this->getCP() . '-' . $this->getVille();
+    }
+
+
 
     public function getId(): ?int
     {
@@ -66,6 +87,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         // If you store any temporary, sensitive data on the user, clear it here
         // $this->plainPassword = null;
     }
+
 
     public function getFirstName(): ?string
     {
@@ -201,7 +223,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getVille()
     {
-        return $this->ville;
+        return $this->Ville;
     }
 
     /**
@@ -209,9 +231,39 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      *
      * @return  self
      */
-    public function setVille($ville)
+    public function setVille($Ville)
     {
-        $this->ville = $ville;
+        $this->Ville = $Ville;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Order>
+     */
+    public function getOrders(): Collection
+    {
+        return $this->orders;
+    }
+
+    public function addOrder(Order $order): self
+    {
+        if (!$this->orders->contains($order)) {
+            $this->orders->add($order);
+            $order->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeOrder(Order $order): self
+    {
+        if ($this->orders->removeElement($order)) {
+            // set the owning side to null (unless already changed)
+            if ($order->getUser() === $this) {
+                $order->setUser(null);
+            }
+        }
 
         return $this;
     }

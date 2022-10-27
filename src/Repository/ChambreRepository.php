@@ -31,6 +31,16 @@ class ChambreRepository extends ServiceEntityRepository
            ->getResult()
            ;
     }
+    public function getChambreParId($id)
+    {
+        
+       return $this->createQueryBuilder('c')
+           ->andWhere('c.id = :val')
+           ->setParameter('val', $id)
+           ->getQuery()
+           ->getResult()
+           ;
+    }
 
     public function save(Chambre $entity, bool $flush = false): void
     {
