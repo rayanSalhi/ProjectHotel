@@ -34,7 +34,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Catégorie de chambre', 'fas fa-school', Category::class);
         yield MenuItem::linkToCrud('Créer une chambre', 'fas fa-bed', Chambre::class);
         yield MenuItem::linkToRoute('Modifier une réservation', 'fa fa-clock', 'app_calendrier');
-        yield MenuItem::linkToDashboard('Work in progress...', 'fa fa-edit', 'app_calendar_edit');
         yield MenuItem::linkToRoute('Retour front office', 'fa fa-undo', 'home');
     }
 }

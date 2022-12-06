@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Controller;
-
-use App\Repository\ChambreRepository;
 use Stripe\Stripe;
 use Stripe\Checkout\Session;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,10 +19,9 @@ class PaymentController extends AbstractController
     }
     
     #[Route('/checkout', name: 'app_checkout')]
-    public function checkout($stripeSK, ChambreRepository $chambre): Response
+    public function checkout($stripeSK): Response
     {
         Stripe::setApiKey($stripeSK);
-        $this->$chambre->findAll();
         
         $session = Session::create([
             // 'billing_address_collection' => 'required',
@@ -32,7 +29,7 @@ class PaymentController extends AbstractController
                 'price_data' => [
                     'currency' => 'EUR',
                     'product_data' => [
-                  'name' => $chambre->getChambreParCategory(),
+                  'name' => 'chambre',
                 ],
                 'unit_amount' => 20000,
               ],
