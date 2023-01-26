@@ -120,10 +120,8 @@
 				<div class="card-header text-center ">
 					<img src="/uploads/{{chambre.illustration}}" class="img-fluid " style="height:200px;width:500px">
 				</div>
-				<button type="button " class="btn btn-outline-dark"><a href="{{path("app_calendar_new")}}">Réserver</a></button>
-				<form action="/checkout" method="POST">
-					<button type="submit">Checkout</button>
-				</form>
+			
+				
 				<div class="card-body">
 
 
@@ -147,12 +145,12 @@
 				</p>
 			</div>
 
-
+		<button type="button " class="btn btn-outline-dark"><a href="{{path("app_calendar_new")}}">Réserver</a></button>
 			{% if chambre.id == chambre.id %}
 
 
 				<button type="button " class="btn btn-outline-dark">
-					<a href="{{path('order',{'id': chambre.id})}}">Réserver</a>
+					<a href="{{path('order',{'id': chambre.id})}}">commande</a>
 				</button>
 			{% endif %}
 
